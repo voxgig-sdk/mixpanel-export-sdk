@@ -1,0 +1,50 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://mixpanel.com/get-support"
+      }
+      description: "Export events as JSON."
+      license: {
+        name: "MIT"
+        url: "https://opensource.org/licenses/MIT"
+      }
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Basic"
+        scheme: "ProjectSecret"
+        type: "http"
+      }
+      servers: [
+        {
+          description: "Mixpanel's data export server."
+          url: "https://{server}.mixpanel.com/api/2.0"
+          variables: {
+            server: {
+              default: "data"
+              description: `The server location to be used:
+* \`data\` - The default (US) servers used for most projects
+* \`data-eu\` - EU servers if you are enrolled in EU Data Residency
+* \`data-in\` - India servers if you are enrolled in India Data Residency
+`
+              enum: [
+                "data"
+                "data-eu"
+                "data-in"
+              ]
+            }
+          }
+        }
+      ]
+      summary: "Export events as JSON."
+      title: "Event Export API"
+      version: "1.0.0"
+      website: "https://mixpanel.com/get-support"
+    }
+  }
+}
+

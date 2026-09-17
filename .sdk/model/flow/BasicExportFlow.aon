@@ -1,0 +1,28 @@
+# BasicExportFlow
+
+main: kit: flow: BasicExportFlow:
+{
+  entity: "export",
+  kind: "basic",
+  name: "BasicExportFlow",
+  step: [
+    {
+      input: {
+        ref: "export_ref01",
+        srcdatavar: "export_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-export_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicExportFlow"
+}

@@ -1,0 +1,4 @@
+/dist/
+/mixpanel-export-cli
+/go-cli
+.jostraca/
