@@ -172,69 +172,77 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"kind": "header",
-											"name": "accept_encoding",
-											"orig": "accept_encoding",
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "[\"signup\",\"purchase\"]",
-											"kind": "query",
-											"name": "event",
-											"orig": "event",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "from_date",
-											"orig": "from_date",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "project_id",
-											"orig": "project_id",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "time_in_m",
-											"orig": "time_in_m",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "to_date",
-											"orig": "to_date",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "where",
-											"orig": "where",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/export",
 								"segments": []any{
 									map[string]any{
 										"lit": "export",
+									},
+								},
+								"parts": []any{
+									"export",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "accept_encoding",
+											"orig": "accept_encoding",
+											"type": "`$STRING`",
+											"kind": "header",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "event",
+											"orig": "event",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "[\"signup\",\"purchase\"]",
+										},
+										map[string]any{
+											"name": "from_date",
+											"orig": "from_date",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "project_id",
+											"orig": "project_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "time_in_m",
+											"orig": "time_in_m",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "to_date",
+											"orig": "to_date",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "where",
+											"orig": "where",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -248,13 +256,6 @@ func MakeConfig() map[string]any {
 										"to_date",
 										"where",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"export",
 								},
 							},
 						},

@@ -194,69 +194,77 @@ class MixpanelExportConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'kind' => 'header',
-                        'name' => 'accept_encoding',
-                        'orig' => 'accept_encoding',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                    'query' => [
-                      [
-                        'example' => '["signup","purchase"]',
-                        'kind' => 'query',
-                        'name' => 'event',
-                        'orig' => 'event',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'from_date',
-                        'orig' => 'from_date',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'project_id',
-                        'orig' => 'project_id',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'time_in_m',
-                        'orig' => 'time_in_m',
-                        'type' => '`$BOOLEAN`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'to_date',
-                        'orig' => 'to_date',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'where',
-                        'orig' => 'where',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/export',
                   'segments' => [
                     [
                       'lit' => 'export',
+                    ],
+                  ],
+                  'parts' => [
+                    'export',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'accept_encoding',
+                        'orig' => 'accept_encoding',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                      ],
+                    ],
+                    'query' => [
+                      [
+                        'name' => 'event',
+                        'orig' => 'event',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'example' => '["signup","purchase"]',
+                      ],
+                      [
+                        'name' => 'from_date',
+                        'orig' => 'from_date',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                      ],
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'project_id',
+                        'orig' => 'project_id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'time_in_m',
+                        'orig' => 'time_in_m',
+                        'type' => '`$BOOLEAN`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'to_date',
+                        'orig' => 'to_date',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                      ],
+                      [
+                        'name' => 'where',
+                        'orig' => 'where',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -270,13 +278,6 @@ class MixpanelExportConfig
                       'to_date',
                       'where',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'export',
                   ],
                 ],
               ],

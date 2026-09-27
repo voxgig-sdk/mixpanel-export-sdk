@@ -1,0 +1,114 @@
+# Entity: export
+
+main: kit: entity: export: {
+
+  alias: field: {}
+
+  name: "export"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /export"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "accept_encoding"
+                or: "accept_encoding"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "[\"signup\",\"purchase\"]"
+                k: "query"
+                n: "event"
+                or: "event"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "from_date"
+                or: "from_date"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "project_id"
+                or: "project_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "time_in_m"
+                or: "time_in_m"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "to_date"
+                or: "to_date"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "where"
+                or: "where"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/export"
+          q: {
+            exist: [
+              "accept_encoding"
+              "event"
+              "from_date"
+              "limit"
+              "project_id"
+              "time_in_m"
+              "to_date"
+              "where"
+            ]
+          }
+          s: [
+            {
+              lit: "export"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}
